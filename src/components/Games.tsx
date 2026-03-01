@@ -1,0 +1,163 @@
+import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
+
+const games = [
+  {
+    name: 'Blox Fruits',
+    features: ['自动刷怪', '自动副本', '传送', '透视'],
+    status: '已更新',
+    gradient: 'from-orange-500 to-red-500',
+  },
+  {
+    name: 'Pet Simulator X',
+    features: ['自动孵化', '宠物复制', '自动刷怪', '传送'],
+    status: '已更新',
+    gradient: 'from-pink-500 to-rose-500',
+  },
+  {
+    name: 'Brookhaven',
+    features: ['管理员命令', '飞行', '加速', '穿墙'],
+    status: '已更新',
+    gradient: 'from-green-500 to-emerald-500',
+  },
+  {
+    name: 'Murder Mystery 2',
+    features: ['透视', '角色揭示', '自瞄', '加速'],
+    status: '已更新',
+    gradient: 'from-red-500 to-rose-600',
+  },
+  {
+    name: 'Arsenal',
+    features: ['自瞄', '透视', '静默瞄准', '无后坐力'],
+    status: '已更新',
+    gradient: 'from-blue-500 to-indigo-500',
+  },
+  {
+    name: 'King Legacy',
+    features: ['自动刷怪', '自动任务', '传送', '透视'],
+    status: '已更新',
+    gradient: 'from-yellow-500 to-amber-500',
+  },
+  {
+    name: 'Tower of Hell',
+    features: ['秒过关', '飞行', '穿墙', '加速'],
+    status: '已更新',
+    gradient: 'from-purple-500 to-violet-500',
+  },
+  {
+    name: 'Da Hood',
+    features: ['自瞄', '静默瞄准', '透视', '飞行'],
+    status: '已更新',
+    gradient: 'from-slate-500 to-zinc-600',
+  },
+  {
+    name: 'Anime Fighters',
+    features: ['自动刷怪', '自动出售', '传送', '复制'],
+    status: '已更新',
+    gradient: 'from-cyan-500 to-teal-500',
+  },
+  {
+    name: 'Adopt Me',
+    features: ['自动刷怪', '传送', '加速', '飞行'],
+    status: '已更新',
+    gradient: 'from-pink-400 to-fuchsia-500',
+  },
+  {
+    name: 'Jailbreak',
+    features: ['自动抢劫', '透视', '穿墙', '飞行'],
+    status: '已更新',
+    gradient: 'from-amber-500 to-orange-600',
+  },
+  {
+    name: 'Shindo Life',
+    features: ['自动转盘', '自动刷怪', '传送', '透视'],
+    status: '已更新',
+    gradient: 'from-red-600 to-orange-500',
+  },
+];
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+export default function Games() {
+  return (
+    <section id="games" className="relative py-28">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3 block">
+            兼容性
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            支持的 <span className="text-gradient">游戏</span>
+          </h2>
+          <p className="max-w-xl mx-auto text-slate-400 text-lg">
+            我们支持所有主流 Roblox 游戏，并且每周都在添加新游戏。
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+        >
+          {games.map((g) => (
+            <motion.div
+              key={g.name}
+              variants={item}
+              className="group relative rounded-2xl glow-card transition-all duration-500 hover:scale-[1.03] overflow-hidden flex flex-col"
+            >
+              {/* Game Image */}
+              <div className="relative w-full h-40 overflow-hidden">
+                <div className={`absolute inset-0 bg-gradient-to-br ${g.gradient} flex items-center justify-center`}>
+                  <span className="text-white/80 font-extrabold text-3xl tracking-wider drop-shadow-lg">
+                    {g.name.split(' ').map(w => w[0]).join('')}
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0b0f1a] to-transparent z-10" />
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-sm">
+                    {g.status}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5 pt-2 flex-1 flex flex-col">
+                <h3 className="font-bold text-white text-base mb-3 group-hover:text-indigo-400 transition-colors">
+                  {g.name}
+                </h3>
+                <ul className="space-y-1.5 flex-1">
+                  {g.features.map((feat) => (
+                    <li key={feat} className="flex items-center gap-2 text-sm text-slate-400">
+                      <Check className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div
+                className={`absolute bottom-0 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r ${g.gradient} opacity-0 group-hover:opacity-60 transition-opacity duration-500`}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
