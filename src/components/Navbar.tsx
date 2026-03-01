@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey';
 import SSImage from './icon.png';
-
-type Page = 'home' | 'version' | 'games' | 'scripts';
 
 const sectionLinks = [
   { label: '功能', href: '#features', page: null as Page | null },
   { label: '游戏', href: '#/games', page: 'games' as Page },
   { label: '脚本', href: '#/scripts', page: 'scripts' as Page },
+  { label: '获取卡密', href: '#/getkey', page: 'getkey' as Page },
   { label: '版本', href: '#/version', page: 'version' as Page },
   { label: '常见问题', href: '#faq', page: null as Page | null },
 ];
@@ -33,10 +33,8 @@ export default function Navbar({
   const handleLinkClick = (link: typeof sectionLinks[number]) => {
     setMobileOpen(false);
     if (link.page) {
-      // Navigate to a separate page
       navigate(link.page);
     } else {
-      // Scroll to section on home page
       if (currentPage !== 'home') {
         navigate('home');
         setTimeout(() => {
@@ -61,7 +59,6 @@ export default function Navbar({
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
         <button onClick={handleLogoClick} className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-lg overflow-hidden shadow-lg shadow-indigo-500/30 group-hover:shadow-indigo-500/50 transition-shadow">
             <img
@@ -69,7 +66,6 @@ export default function Navbar({
               alt="RSHUB Logo"
               className="w-full h-full object-cover"
               onError={(e) => {
-                // Fallback to gradient LX if image fails to load
                 const parent = (e.target as HTMLImageElement).parentElement;
                 if (parent) {
                   parent.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center"><span class="text-white text-xs font-black">LX</span></div>`;
@@ -79,11 +75,10 @@ export default function Navbar({
           </div>
           <span className="text-xl font-bold tracking-tight">
             <span className="text-white">RS</span>
-            <span className="text-gradient">HUB</span>
+            <span className="text-gradient">Hub</span>
           </span>
         </button>
 
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">
           {sectionLinks.map((l) => {
             const isActive = l.page ? currentPage === l.page : false;
@@ -117,7 +112,6 @@ export default function Navbar({
           })}
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-slate-300"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -126,7 +120,6 @@ export default function Navbar({
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -168,7 +161,6 @@ export default function Navbar({
                   </a>
                 );
               })}
-              {/* Scripts link already in nav above */}
             </div>
           </motion.div>
         )}
