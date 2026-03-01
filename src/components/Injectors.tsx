@@ -154,7 +154,7 @@ export default function Injectors() {
   const getPlatformText = (extype: string) => {
     switch (extype) {
       case 'wexecutor': return 'Windows';
-      case 'wexternal': return '外挂';
+      case 'wexternal': return '外部';
       case 'aexecutor': return '安卓';
       case 'iexecutor': return 'iOS';
       case 'mexecutor': return 'Mac';
@@ -227,7 +227,7 @@ export default function Injectors() {
             执行器 <span className="text-gradient">数据库</span>
           </h2>
           <p className="max-w-xl mx-auto text-slate-400 text-lg">
-            所有已知 Roblox 执行器的实时状态。查看检测状态、UNC/SUNC 评分和下载链接。
+            所有已知 Roblox 执行器的实时状态。查看检测状态、UNC/SUNC 评分和获取链接。
           </p>
         </motion.div>
 
@@ -515,12 +515,12 @@ export default function Injectors() {
                       <div className="flex flex-wrap gap-2 pt-1">
                         {injector.decompiler && (
                           <span className="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">
-                            📦 反编译器
+                            反编译器
                           </span>
                         )}
                         {injector.multiInject && (
                           <span className="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">
-                            🔄 多重注入
+                             多重注入
                           </span>
                         )}
                       </div>

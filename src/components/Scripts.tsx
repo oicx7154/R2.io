@@ -68,7 +68,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
             {/* Tag */}
             <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white mb-6">
               <Sparkles className="w-3 h-3" />
-              LunarX Hub 加载器
+              RS Hub 加载器
             </span>
 
             {/* Key Input */}

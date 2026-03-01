@@ -8,6 +8,7 @@ import Injectors from './components/Injectors';
 import Scripts from './components/Scripts';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 
 type Page = 'home' | 'version' | 'games' | 'scripts';
 
@@ -75,6 +76,7 @@ export default function App() {
       )}
 
       <Footer navigate={navigate} />
+      <CookieConsent />
     </div>
   );
 }
@@ -88,7 +90,6 @@ function SubPage({
 }) {
   return (
     <div className="pt-16">
-      {/* Back button */}
       <div className="max-w-7xl mx-auto px-6 pt-8">
         <button
           onClick={() => navigate('home')}

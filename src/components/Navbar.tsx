@@ -78,8 +78,8 @@ export default function Navbar({
             />
           </div>
           <span className="text-xl font-bold tracking-tight">
-            <span className="text-white">Lunar</span>
-            <span className="text-gradient">X</span>
+            <span className="text-white">RS</span>
+            <span className="text-gradient">HUB</span>
           </span>
         </button>
 

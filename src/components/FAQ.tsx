@@ -4,12 +4,12 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'LunarX Hub 是免费使用的吗？',
-    a: '是的！我们的通用中心和大多数脚本完全免费。未来我们可能会提供高级功能，但核心体验将始终保持免费。',
+    q: 'RS Hub 是免费使用的吗?',
+    a: '免费,但是处于密钥系统阶段,也可以通过购买卡密获取永久使用权',
   },
   {
     q: '支持哪些执行器？',
-    a: 'LunarX 支持所有主流执行器，包括 Synapse X、Script-Ware、KRNL、Fluxus 等。任何 7 级以上的执行器都可以完美运行。',
+    a: 'RS 支持所有主流执行器,包括krnl,Potassium,Wave,Volt等.',
   },
   {
     q: '使用这些脚本会被封号吗？',

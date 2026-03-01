@@ -24,7 +24,7 @@ interface Announcement {
 const announcements: Announcement[] = [
   {
     id: 1,
-    title: '🎉 LunarX Hub v3.0 正式上线',
+    title: '🎉 RS Hub v3.0 正式上线',
     content:
       '全新界面设计，新增执行器数据库、Roblox 版本追踪功能。支持一键复制脚本、卡密生成系统。感谢大家的支持，我们将持续优化更新！',
     date: '2025-01-15',
