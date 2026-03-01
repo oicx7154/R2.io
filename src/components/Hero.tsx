@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-type Page = 'home' | 'version' | 'games' | 'scripts';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey';
 
 export default function Hero({ navigate }: { navigate: (p: Page) => void }) {
   return (
@@ -26,26 +26,24 @@ export default function Hero({ navigate }: { navigate: (p: Page) => void }) {
           2025 最新更新 — 始终未被检测
         </motion.div>
 
-        {/* Main heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight mb-6"
         >
-          <span className="text-white">终极</span>
+          <span className="text-white">RS Hub</span>
           <br />
           <span className="text-gradient">Roblox 脚本中心</span>
         </motion.h1>
 
-        {/* Sub-heading */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed mb-10"
         >
-          支持 50+ 款热门 Roblox 游戏的高级脚本。使用我们强大、安全且持续更新的脚本集合，称霸每一局游戏。
+          支持多款热门Roblox游戏
         </motion.p>
 
         {/* CTA buttons */}

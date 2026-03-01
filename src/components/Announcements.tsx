@@ -24,44 +24,20 @@ interface Announcement {
 const announcements: Announcement[] = [
   {
     id: 1,
-    title: '🎉 RS Hub v3.0 正式上线',
+    title: '🎉 RS Hub 正式上线',
     content:
       '全新界面设计，新增执行器数据库、Roblox 版本追踪功能。支持一键复制脚本、卡密生成系统。感谢大家的支持，我们将持续优化更新！',
-    date: '2025-01-15',
+    date: '2025-12-1',
     type: 'event',
     pinned: true,
   },
   {
     id: 2,
-    title: '⚠️ Roblox 更新提醒',
-    content:
-      'Roblox 客户端已推送最新版本更新，部分脚本功能可能暂时受到影响。我们正在紧急适配中，预计 24 小时内完成修复。请前往「版本」页面查看当前版本状态和执行器兼容性。',
-    date: '2025-01-14',
-    type: 'warning',
-  },
-  {
-    id: 3,
-    title: '✅ Blox Fruits 脚本已更新',
-    content:
-      '修复了自动刷怪中断的问题，新增自动拾取稀有水果功能。优化了 ESP 透视的性能表现，降低帧率影响。更新后请重新生成脚本使用。',
-    date: '2025-01-13',
-    type: 'update',
-  },
-  {
-    id: 4,
     title: 'ℹ️ 关于卡密系统说明',
     content:
-      '每个卡密仅限绑定一个账号使用。如需更换绑定，请联系管理员处理。购买卡密后请妥善保管，遗失不补。脚本页面输入卡密即可一键生成专属脚本。',
+      '每个卡密仅限绑定一个账号使用.如需更换绑定,请联系管理员处理.购买卡密后请妥善保管,脚本页面输入卡密即可一键生成专属脚本.',
     date: '2025-01-12',
     type: 'info',
-  },
-  {
-    id: 5,
-    title: '🚀 新增支持游戏：Anime Defenders',
-    content:
-      '应大家的请求，我们新增了 Anime Defenders 游戏的脚本支持。功能包括：自动防御、自动升级塔、自动收集金币、ESP 显示敌人路径等。快去「游戏」页面查看吧！',
-    date: '2025-01-10',
-    type: 'event',
   },
 ];
 
@@ -174,7 +150,7 @@ export default function Announcements() {
             <span className="text-gradient"> 公告</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
-            了解最新的脚本更新、版本适配和活动通知
+            了解最新的脚本更新和活动通知
           </p>
         </motion.div>
 

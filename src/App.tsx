@@ -6,16 +6,18 @@ import Features from './components/Features';
 import Games from './components/Games';
 import Injectors from './components/Injectors';
 import Scripts from './components/Scripts';
+import GetKey from './components/GetKey';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 
-type Page = 'home' | 'version' | 'games' | 'scripts';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey';
 
 const hashToPage: Record<string, Page> = {
   '#/version': 'version',
   '#/games': 'games',
   '#/scripts': 'scripts',
+  '#/getkey': 'getkey',
 };
 
 const pageToHash: Record<Page, string> = {
@@ -23,6 +25,7 @@ const pageToHash: Record<Page, string> = {
   version: '#/version',
   games: '#/games',
   scripts: '#/scripts',
+  getkey: '#/getkey',
 };
 
 function getPageFromHash(): Page {
@@ -72,6 +75,12 @@ export default function App() {
       {page === 'version' && (
         <SubPage navigate={navigate}>
           <Injectors />
+        </SubPage>
+      )}
+
+      {page === 'getkey' && (
+        <SubPage navigate={navigate}>
+          <GetKey />
         </SubPage>
       )}
 

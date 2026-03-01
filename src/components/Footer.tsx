@@ -1,6 +1,6 @@
 import { Zap } from 'lucide-react';
 
-type Page = 'home' | 'version' | 'games' | 'scripts';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey';
 
 export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
   const handleLogoClick = () => {
@@ -16,15 +16,14 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
     <footer className="relative border-t border-white/5 bg-[#030308]">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
           <div className="md:col-span-1">
             <button onClick={handleLogoClick} className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-white" />
               </div>
               <span className="text-lg font-bold">
-                <span className="text-white">Rs</span>
-                <span className="text-gradient">Hub</span>
+                <span className="text-white">Lunar</span>
+                <span className="text-gradient">X</span>
               </span>
             </button>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -32,7 +31,6 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="text-sm font-semibold text-white mb-4">导航</h4>
             <ul className="space-y-2.5 text-sm text-slate-500">
@@ -53,6 +51,15 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
                   className="hover:text-indigo-400 transition-colors"
                 >
                   脚本
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#/getkey"
+                  onClick={(e) => handlePageClick(e, 'getkey')}
+                  className="hover:text-indigo-400 transition-colors"
+                >
+                  获取卡密
                 </a>
               </li>
               <li>
@@ -85,7 +92,6 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-600">
             © 2025 RS Hub. 保留所有权利。
