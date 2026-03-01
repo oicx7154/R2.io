@@ -72,9 +72,6 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
             <h4 className="text-sm font-semibold text-white mb-4">社区</h4>
             <ul className="space-y-2.5 text-sm text-slate-500">
               <li><a href="#" className="hover:text-indigo-400 transition-colors">Discord 服务器</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">YouTube 频道</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Twitter / X</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Telegram</a></li>
             </ul>
           </div>
 

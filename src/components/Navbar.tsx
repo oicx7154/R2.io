@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import SSImage from './icon.png';
 
 type Page = 'home' | 'version' | 'games' | 'scripts';
@@ -65,7 +66,7 @@ export default function Navbar({
           <div className="w-9 h-9 rounded-lg overflow-hidden shadow-lg shadow-indigo-500/30 group-hover:shadow-indigo-500/50 transition-shadow">
             <img
               src={SSImage}
-              alt="RS HUB Logo"
+              alt="RSHUB Logo"
               className="w-full h-full object-cover"
               onError={(e) => {
                 // Fallback to gradient LX if image fails to load
