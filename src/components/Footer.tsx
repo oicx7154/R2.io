@@ -97,7 +97,7 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
             © 2025 RS Hub. 保留所有权利.
           </p>
           <p className="text-xs text-slate-700">
-            仅供学习用途.
+          仅供学习用途.
           </p>
         </div>
       </div>

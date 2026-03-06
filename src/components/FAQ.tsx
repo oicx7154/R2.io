@@ -85,7 +85,7 @@ export default function FAQ() {
             常见问题
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            有 <span className="text-gradient">疑问？</span>
+            有 <span className="text-gradient">疑问?</span>
           </h2>
           <p className="max-w-xl mx-auto text-slate-400 text-lg">
             在下方找到最常见问题的答案。
