@@ -100,7 +100,6 @@ const games = [
     gradient: 'from-red-600 to-orange-500',
   },
 ];
-
 const container = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.05 } },
@@ -192,7 +191,7 @@ export default function Games() {
             支持的 <span className="text-gradient">游戏</span>
           </h2>
           <p className="max-w-xl mx-auto text-slate-400 text-lg">
-            我们支持所有主流 Roblox 游戏，并且每周都在添加新游戏。
+            我们持续更新中
           </p>
         </motion.div>
 
@@ -212,7 +211,8 @@ export default function Games() {
               <motion.div
                 key={g.name}
                 variants={item}
-                className="group relative rounded-2xl glow-card transition-all duration-500 hover:scale-[1.03] overflow-hidden flex flex-col"
+                className="group relative rounded-2xl glow-card transition-all duration-500 overflow-hidden flex flex-col"
+                style={{ willChange: 'transform', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
               >
                 <div className="relative w-full h-40 overflow-hidden">
                   <div
@@ -231,7 +231,8 @@ export default function Games() {
                       src={imageUrl}
                       alt={g.name}
                       onError={() => handleImageError(g.placeId)}
-                      className="absolute inset-0 w-full h-full object-cover z-[1] transition-transform duration-700 group-hover:scale-110"
+                      className="absolute inset-0 w-full h-full object-cover z-[1]"
+                      style={{ imageRendering: 'auto' }}
                     />
                   )}
 
@@ -243,7 +244,7 @@ export default function Games() {
                   </div>
                 </div>
 
-                <div className="p-5 pt-2 flex-1 flex flex-col">
+                <div className="p-5 pt-2 flex-1 flex flex-col" style={{ backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}>
                   <h3 className="font-bold text-white text-base mb-3 group-hover:text-indigo-400 transition-colors">
                     {g.name}
                   </h3>
