@@ -22,8 +22,8 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
                 <Zap className="w-4 h-4 text-white" />
               </div>
               <span className="text-lg font-bold">
-                <span className="text-white">Lunar</span>
-                <span className="text-gradient">X</span>
+                <span className="text-white">RS</span>
+                <span className="text-gradient">Hub</span>
               </span>
             </button>
             <p className="text-sm text-slate-500 leading-relaxed">
@@ -94,10 +94,10 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-600">
-            © 2025 RS Hub. 保留所有权利。
+            © 2025 RS Hub. 保留所有权利.
           </p>
           <p className="text-xs text-slate-700">
-            与 Roblox Corporation 无关。仅供学习用途。
+            仅供学习用途.
           </p>
         </div>
       </div>
