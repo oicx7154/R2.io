@@ -37,8 +37,8 @@ const games = [
   },
   {
     name: "黑暗欺骗",
-    placeId: 7229780065,
-    universeId: 7229780065,
+    placeId: 136431686349723,
+    universeId: 136431686349723,
     features: ["自动收集碎片","透视怪"],
     status: "未更新",
     gradient: 'from-amber-500 to-orange-600'
