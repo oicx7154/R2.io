@@ -221,13 +221,13 @@ export default function Injectors() {
           className="text-center mb-12 mt-8"
         >
           <span className="text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3 block">
-            执行器状态
+            注入器获取
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            执行器 <span className="text-gradient">数据库</span>
+            注入器 <span className="text-gradient">状态</span>
           </h2>
           <p className="max-w-xl mx-auto text-slate-400 text-lg">
-            所有已知 Roblox 执行器的实时状态。查看检测状态、UNC/SUNC 评分和获取链接。
+            所有已知 Roblox 注入器的实时状态,注入器获取由inject.today提供api
           </p>
         </motion.div>
 

@@ -78,7 +78,8 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
           <div>
             <h4 className="text-sm font-semibold text-white mb-4">社区</h4>
             <ul className="space-y-2.5 text-sm text-slate-500">
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Discord 服务器</a></li>
+              <li><a href="https://discord.gg/pvpdkxhJ7Y" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">Discord 服务器</a></li>
+              <li><a href="https://qm.qq.com/q/ALly9zVZbq" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">QQ 群</a></li>
             </ul>
           </div>
 

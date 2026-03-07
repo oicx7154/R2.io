@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, Check, Terminal, Key, Sparkles, Wand2 } from 'lucide-react';
+import { Copy, Check, Terminal, Key, Sparkles, Wand2, Zap } from 'lucide-react';
 
 export default function Scripts() {
   const [key, setKey] = useState('');
   const [generatedScript, setGeneratedScript] = useState('');
   const [copied, setCopied] = useState(false);
   const [isGenerated, setIsGenerated] = useState(false);
+  const [quickCopied, setQuickCopied] = useState(false);
+
+  const quickScript = `loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
+
+  const handleQuickCopy = async () => {
+    await navigator.clipboard.writeText(quickScript);
+    setQuickCopied(true);
+    setTimeout(() => setQuickCopied(false), 2500);
+  };
 
   const generateScript = () => {
     if (!key.trim()) return;
     const script = `getgenv().SCRIPT_KEY = "${key.trim()}"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/heads/main/LingGouMain.lua"))()`;
+loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
     setGeneratedScript(script);
     setIsGenerated(true);
     setCopied(false);
@@ -32,12 +41,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
 
   return (
     <section id="scripts" className="relative py-28">
-      {/* BG glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +63,75 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
           </p>
         </motion.div>
 
-        {/* Main Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative rounded-2xl glow-card overflow-hidden mb-8"
+        >
+          <div className="p-8 md:p-10">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white mb-6">
+              <Zap className="w-3 h-3" />
+              快速复制
+            </span>
+
+            <h3 className="text-xl font-bold text-white mb-2">一键复制脚本</h3>
+            <p className="text-sm text-slate-400 mb-6">无需卡密，直接复制脚本到执行器中运行。</p>
+
+            <div className="relative rounded-xl bg-[#0a0a1a] border border-white/10 p-5 mb-5 overflow-hidden">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <Terminal className="w-4 h-4 text-amber-400" />
+                  <span className="text-xs text-slate-500 font-mono">Lua</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex flex-col text-right select-none">
+                  <span className="text-xs text-slate-700 font-mono leading-relaxed">1</span>
+                </div>
+                <pre className="flex-1 overflow-x-auto">
+                  <code className="text-sm font-mono leading-relaxed whitespace-pre block">
+                    <span className="text-yellow-400">loadstring</span>
+                    <span className="text-slate-400">(</span>
+                    <span className="text-cyan-300">game</span>
+                    <span className="text-slate-400">:</span>
+                    <span className="text-yellow-400">HttpGet</span>
+                    <span className="text-green-400">'https://tinyurl.com/3fmxt65b'</span>
+                    <span className="text-slate-400">)()</span>
+                    <span className="text-green-400">':3'</span>
+                  </code>
+                </pre>
+              </div>
+            </div>
+
+            <button
+              onClick={handleQuickCopy}
+              className={`w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                quickCopied
+                  ? 'bg-green-500/20 text-green-400 border border-green-500/30 shadow-lg shadow-green-500/10'
+                  : 'bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:from-amber-500 hover:to-orange-500 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98]'
+              }`}
+            >
+              {quickCopied ? (
+                <>
+                  <Check className="w-5 h-5" /> 已复制到剪贴板！
+                </>
+              ) : (
+                <>
+                  <Copy className="w-5 h-5" /> 复制脚本
+                </>
+              )}
+            </button>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,13 +140,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
           className="relative rounded-2xl glow-card overflow-hidden"
         >
           <div className="p-8 md:p-10">
-            {/* Tag */}
             <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white mb-6">
               <Sparkles className="w-3 h-3" />
-              RS Hub 加载器
+              Rs Hub 加载器
             </span>
 
-            {/* Key Input */}
             <div className="mb-6">
               <label className="flex items-center gap-2 text-sm font-medium text-slate-300 mb-3">
                 <Key className="w-4 h-4 text-indigo-400" />
@@ -102,7 +175,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
               </p>
             </div>
 
-            {/* Generate Button */}
             <button
               onClick={generateScript}
               disabled={!key.trim()}
@@ -116,25 +188,22 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
               生成脚本
             </button>
 
-            {/* Generated Script Block */}
             {isGenerated && generatedScript && (
               <motion.div
                 initial={{ opacity: 0, y: 15, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
-                {/* Success indicator */}
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   <span className="text-xs font-medium text-green-400">脚本生成成功</span>
                 </div>
 
-                {/* Code block */}
                 <div className="relative rounded-xl bg-[#0a0a1a] border border-white/10 p-5 mb-5 overflow-hidden group">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <Terminal className="w-4 h-4 text-indigo-400" />
-                      <span className="text-xs text-slate-500 font-mono">Lua 脚本</span>
+                      <span className="text-xs text-slate-500 font-mono">Lua</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-red-500/60" />
@@ -143,7 +212,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
                     </div>
                   </div>
 
-                  {/* Line numbers + code */}
                   <div className="flex gap-4">
                     <div className="flex flex-col text-right select-none">
                       {generatedScript.split('\n').map((_, i) => (
@@ -156,7 +224,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
                       <code className="text-sm text-indigo-300 font-mono leading-relaxed whitespace-pre">
                         {generatedScript.split('\n').map((line, i) => (
                           <span key={i} className="block">
-                            {/* Syntax highlighting */}
                             {line.startsWith('getgenv()') ? (
                               <>
                                 <span className="text-yellow-400">getgenv</span>
@@ -173,9 +240,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
                                 <span className="text-cyan-300">game</span>
                                 <span className="text-slate-400">:</span>
                                 <span className="text-yellow-400">HttpGet</span>
-                                <span className="text-slate-400">(</span>
-                                <span className="text-green-400">"https://raw.githubusercontent.com/DCLZH1/Main/refs/heads/main/LingGouMain.lua"</span>
-                                <span className="text-slate-400">))()</span>
+                                <span className="text-green-400">'https://tinyurl.com/3fmxt65b'</span>
+                                <span className="text-slate-400">)()</span>
+                                <span className="text-green-400">':3'</span>
                               </>
                             ) : (
                               <span className="text-indigo-300">{line}</span>
@@ -186,11 +253,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
                     </pre>
                   </div>
 
-                  {/* shimmer overlay */}
                   <div className="absolute inset-0 shimmer pointer-events-none" />
                 </div>
 
-                {/* Copy button */}
                 <button
                   onClick={handleCopy}
                   className={`w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-bold text-sm transition-all duration-300 ${
@@ -214,7 +279,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DCLZH1/Main/refs/head
           </div>
         </motion.div>
 
-        {/* Instructions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

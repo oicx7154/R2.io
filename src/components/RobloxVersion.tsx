@@ -330,7 +330,7 @@ export default function RobloxVersion() {
             Roblox <span className="text-gradient">版本</span>
           </h2>
           <p className="max-w-xl mx-auto text-slate-400 text-lg">
-            实时追踪最新的 Roblox 客户端版本。即时下载当前或上一个版本。
+            实时获取 Roblox 客户端版本,下载当前或上一个版本.
           </p>
         </motion.div>
 
@@ -348,7 +348,7 @@ export default function RobloxVersion() {
             </div>
             <div>
               <h3 className="text-base font-bold text-white">实时版本监控</h3>
-              <p className="text-xs text-slate-500">自动从 Roblox 部署服务器获取</p>
+              <p className="text-xs text-slate-500">版本由weao提供api</p>
             </div>
           </div>
           <button
@@ -402,7 +402,7 @@ export default function RobloxVersion() {
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
             <span className="font-semibold text-indigo-300">提示：</span>{' '}
-            如果你的执行器在 Roblox 更新后崩溃，可以下载上一个版本使用，直到执行器修复。版本数据来自 Roblox 官方部署通道。
+            如果你的执行器在 Roblox 更新后无法使用,可以下载上一个Roblox版本使用,直到执行器更新.
           </p>
         </motion.div>
       </div>
