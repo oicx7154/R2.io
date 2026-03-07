@@ -19,6 +19,38 @@ const games = [
     status: '已更新',
     gradient: 'from-pink-500 to-rose-500',
   },
+  {
+    name: "种植花园",
+    placeId: 126884695634066,
+    universeId: 126884695634066,
+    features: ["忘记了"],
+    status: "未更新",
+    gradient: 'from-slate-500 to-zinc-600'
+  },
+  {
+    name: "被遗弃",
+    placeId: 18687417158,
+    universeId: 18687417158,
+    features: ["自动修机","透视杀手","透视玩家"],
+    status: "未更新",
+    gradient: 'from-cyan-500 to-teal-500'
+  },
+  {
+    name: "黑暗欺骗",
+    placeId: 7229780065,
+    universeId: 7229780065,
+    features: ["自动收集碎片","透视怪"],
+    status: "未更新",
+    gradient: 'from-amber-500 to-orange-600'
+  },
+  {
+    name: "Hunter",
+    placeId: 72992062125248,
+    universeId:72992062125248,
+    features: ["杀戮光环","自动过关"],
+    status: "未更新",
+    gradient: "from-pink-400 to-fuchsia-500"
+  }
 ];
 const container = {
   hidden: {},
