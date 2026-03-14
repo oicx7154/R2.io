@@ -10,7 +10,7 @@ export default function Scripts() {
   const [quickCopied, setQuickCopied] = useState(false);
 
   const quickScript = `getfenv().Image = ""; -- 使用rbxassetid://
-  loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
+loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
 
   const handleQuickCopy = async () => {
     await navigator.clipboard.writeText(quickScript);
@@ -20,8 +20,7 @@ export default function Scripts() {
 
   const generateScript = () => {
     if (!key.trim()) return;
-    const script = `
-getfenv().Image = ""; -- 使用rbxassetid://
+    const script = `getfenv().Image = ""; -- 使用rbxassetid://
 getgenv().SCRIPT_KEY = "${key.trim()}"
 loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
     setGeneratedScript(script);
@@ -108,7 +107,6 @@ loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
                     <span className="text-green-400">=</span>
                     <span className="text-slate-400">""; -- 使用rbxassetid://
                     </span>
-                    
                     <span className="text-yellow-400">loadstring</span>
                     <span className="text-slate-400">(</span>
                     <span className="text-cyan-300">game</span>
