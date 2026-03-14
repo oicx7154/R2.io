@@ -107,7 +107,8 @@ loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
                     <span className="text-slate-400">.</span>
                     <span className="text-yellow-400">Image</span>
                     <span className="text-green-400">=</span>
-                    <span className="text-slate-400">""\n</span>
+                    <span className="text-slate-400">""</span>
+                    
                     <span className="text-yellow-400">loadstring</span>
                     <span className="text-slate-400">(</span>
                     <span className="text-cyan-300">game</span>
