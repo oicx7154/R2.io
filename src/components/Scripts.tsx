@@ -9,7 +9,8 @@ export default function Scripts() {
   const [isGenerated, setIsGenerated] = useState(false);
   const [quickCopied, setQuickCopied] = useState(false);
 
-  const quickScript = `getfenv().Image = "";
+  const quickScript = `
+  getfenv().Image = "";
   loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
 
   const handleQuickCopy = async () => {
@@ -20,8 +21,9 @@ export default function Scripts() {
 
   const generateScript = () => {
     if (!key.trim()) return;
-    const script = `getfenv().Image = ""
-    getgenv().SCRIPT_KEY = "${key.trim()}"
+    const script = `
+getfenv().Image = ""
+getgenv().SCRIPT_KEY = "${key.trim()}"
 loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
     setGeneratedScript(script);
     setIsGenerated(true);
