@@ -9,8 +9,7 @@ export default function Scripts() {
   const [isGenerated, setIsGenerated] = useState(false);
   const [quickCopied, setQuickCopied] = useState(false);
 
-  const quickScript = `
-  getfenv().Image = ""; -- 使用rbxassetid://
+  const quickScript = `getfenv().Image = ""; -- 使用rbxassetid://
   loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
 
   const handleQuickCopy = async () => {
@@ -107,7 +106,8 @@ loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
                     <span className="text-slate-400">.</span>
                     <span className="text-yellow-400">Image</span>
                     <span className="text-green-400">=</span>
-                    <span className="text-slate-400">""</span>
+                    <span className="text-slate-400">""; -- 使用rbxassetid://
+                    </span>
                     
                     <span className="text-yellow-400">loadstring</span>
                     <span className="text-slate-400">(</span>
