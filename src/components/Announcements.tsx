@@ -24,21 +24,20 @@ interface Announcement {
 const announcements: Announcement[] = [
   {
     id: 1,
-    title: '🎉 RS Hub 正式上线',
-    content:
-      '全新界面设计，新增执行器数据库、Roblox 版本追踪功能。支持一键复制脚本、卡密生成系统。感谢大家的支持，我们将持续优化更新！',
-    date: '2025-12-1',
-    type: 'event',
-    pinned: true,
-  },
-  {
-    id: 2,
     title: 'ℹ️ 关于卡密系统说明',
     content:
       '每个卡密仅限绑定一个账号使用.如需更换绑定,请联系管理员处理.购买卡密后请妥善保管,脚本页面输入卡密即可一键生成专属脚本.',
     date: '2025-01-12',
     type: 'info',
   },
+  {
+    id: 2,
+    title: "更新公告",
+    content: "新增游戏:无标题近战RNG",
+    date: '2026-03-15',
+    type: 'update',
+    pinned: true,
+  }
 ];
 
 const typeConfig = {
