@@ -10,6 +10,7 @@ export default function Scripts() {
   const [quickCopied, setQuickCopied] = useState(false);
 
   const quickScript = `getfenv().Image = ""; -- 使用rbxassetid://
+getfenv().SCRIPT_KEY = "";
 loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()`;
 
   const handleQuickCopy = async () => {
@@ -107,6 +108,12 @@ loadstring(game:HttpGet'https://tinyurl.com/3fmxt65b')()':3'`;
                     <span className="text-green-400">=</span>
                     <span className="text-slate-400">""; -- 使用rbxassetid://
                     </span>
+                    <span className="text-yellow-400">getgenv</span>
+                    <span className="text-slate-400">()</span>
+                    <span className="text-slate-400">.</span>
+                    <span className="text-cyan-300">SCRIPT_KEY</span>
+                    <span className="text-pink-400"> = </span>
+                     <span className="text-green-400">""</span>
                     <span className="text-yellow-400">loadstring</span>
                     <span className="text-slate-400">(</span>
                     <span className="text-cyan-300">game</span>
