@@ -50,6 +50,14 @@ const games = [
     features: ["杀戮光环","自动过关"],
     status: "未更新",
     gradient: "from-pink-400 to-fuchsia-500"
+  },
+  {
+    name: "无标题近战RNG",
+    placeId: 99248392277037,
+    universeId: 99248392277037,
+    features: ["自动攻击","自动抽奖"],
+    status: "已更新",
+    gradient: "from-emerald-500 to-green-500"
   }
 ];
 const container = {
