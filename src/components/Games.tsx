@@ -58,6 +58,14 @@ const games = [
     features: ["自动攻击","自动抽奖"],
     status: "已更新",
     gradient: "from-emerald-500 to-green-500"
+  },
+  {
+    name: "Dungeon Leveling Origin",
+    placeId: 85809786409351,
+    universeId: 85809786409351,
+    features: ["杀戮光环"],
+    status: "已更新",
+    gradient: "from-emerald-500 to-green-500"
   }
 ];
 const container = {

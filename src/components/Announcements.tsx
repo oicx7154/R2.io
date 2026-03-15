@@ -33,7 +33,7 @@ const announcements: Announcement[] = [
   {
     id: 2,
     title: "更新公告",
-    content: "新增游戏:无标题近战RNG",
+    content: "新增游戏:无标题近战RNG,Dungeon Leveling Origin",
     date: '2026-03-15',
     type: 'update',
     pinned: true,
