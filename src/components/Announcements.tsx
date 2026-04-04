@@ -36,6 +36,13 @@ const announcements: Announcement[] = [
     content: "新增游戏:无标题近战RNG,Dungeon Leveling Origin",
     date: '2026-03-15',
     type: 'update',
+  },
+  {
+    id: 3,
+    title: "更新公告",
+    content: "新增游戏:撕咬之夜",
+    date: '2026-04-4',
+    type: 'update',
     pinned: true,
   }
 ];
