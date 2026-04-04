@@ -65,7 +65,15 @@ const games = [
     universeId: 85809786409351,
     features: ["杀戮光环"],
     status: "已更新",
-    gradient: "from-emerald-500 to-green-500"
+    gradient: "from-emerald-500 to-pink-400"
+  },
+  {
+    name: "撕咬之夜",
+    placeId: 70845479499574,
+    universeId: 70845479499574,
+    features: ["自动修机","透视杀手","无限体力","电池秒互动"],
+    status: "已更新",
+    gradient: "from-emerald-500 to-fuchsia-500"
   }
 ];
 const container = {
