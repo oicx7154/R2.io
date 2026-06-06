@@ -9,15 +9,17 @@ import Scripts from './components/Scripts';
 import GetKey from './components/GetKey';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Rank from './components/Team';
 import CookieConsent from './components/CookieConsent';
 
-type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey' | 'rank';
 
 const hashToPage: Record<string, Page> = {
   '#/version': 'version',
   '#/games': 'games',
   '#/scripts': 'scripts',
   '#/getkey': 'getkey',
+  '#/rank': 'rank',
 };
 
 const pageToHash: Record<Page, string> = {
@@ -26,7 +28,8 @@ const pageToHash: Record<Page, string> = {
   games: '#/games',
   scripts: '#/scripts',
   getkey: '#/getkey',
-};
+  rank: '#/rank',
+};    
 
 function getPageFromHash(): Page {
   return hashToPage[window.location.hash] || 'home';
@@ -81,6 +84,12 @@ export default function App() {
       {page === 'getkey' && (
         <SubPage navigate={navigate}>
           <GetKey />
+        </SubPage>
+      )}
+
+      {page === 'rank' && (
+        <SubPage navigate={navigate}>
+          <Rank />
         </SubPage>
       )}
 
