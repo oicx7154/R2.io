@@ -9,7 +9,7 @@ const rankingData = [
     description: '最扫之人,不容置疑',
     score: 1,
     image: 'https://tr.rbxcdn.com/30DAY-Avatar-1DA53ECB829E4E0FD721FA33058CB29A-Png/720/720/Avatar/Webp/noFilter',
-    badges: [],
+    badges: ['诡计多端的小男娘'],
   },
   {
     rank: 2,
@@ -18,7 +18,7 @@ const rankingData = [
     description: '最强乐乐之人,名言: 我喜茶你',
     score: 0,
     image: 'https://tr.rbxcdn.com/30DAY-Avatar-517B4E7630C57B3BD46E079634FE401A-Png/720/720/Avatar/Webp/noFilter',
-    badges: [],
+    badges: ['活跃','sofree'],
   },
 ];
 
