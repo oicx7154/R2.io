@@ -40,7 +40,7 @@ const games = [
     placeId: 136431686349723,
     universeId: 136431686349723,
     features: ["自动收集碎片","透视怪"],
-    status: "未更新",
+    status: "已更新",
     gradient: 'from-amber-500 to-orange-600'
   },
   {
