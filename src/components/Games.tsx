@@ -74,6 +74,14 @@ const games = [
     features: ["自动修机","透视杀手","无限体力","电池秒互动"],
     status: "已更新",
     gradient: "from-emerald-500 to-fuchsia-500"
+  },
+  {
+    name: "Reign Fall",
+    placeId: 11765763028,
+    universeId: 11765763028,
+    features: ["杀戮光环","透视"],
+    status: "已更新",
+    gradient: "from-pink-500 to-fuchsia-500"
   }
 ];
 const container = {
