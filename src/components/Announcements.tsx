@@ -43,6 +43,27 @@ const announcements: Announcement[] = [
     content: "新增游戏:撕咬之夜",
     date: '2026-04-4',
     type: 'update',
+  },
+  {
+    id: 4,
+    title: "更新公告",
+    content: "樱花摊位脚本重置",
+    date: '2026-07-12',
+    type: 'update',
+  },
+  {
+    id: 5,
+    title: "更新公告",
+    content: "樱花摊位脚本更新",
+    date: '2026-07-13',
+    type: 'update',
+  },
+  {
+    id: 6,
+    title: "更新公告",
+    content: "新增游戏:Reign Fall",
+    date: '2026-07-13',
+    type: 'update',
     pinned: true,
   }
 ];
