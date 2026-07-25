@@ -1,55 +1,94 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const VIDEO_DATA = [
+  {
+    id: 'dQw4w9WgXcQ',
+    title: '示例视频 1',
+    desc: '一个用于展示的视频占位示例。可替换为实际教程或演示视频。',
+    tags: ['教程', '演示'],
+  },
+  {
+    id: '9bZkp7q19f0',
+    title: '示例视频 2',
+    desc: '另一个视频占位，替换为实际视频链接或自托管播放器。',
+    tags: ['宣传'],
+  },
+];
+
+function PlayIcon() {
+  return (
+    <svg className="w-10 h-10 text-white drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z" />
+    </svg>
+  );
+}
 
 export default function Videos() {
+  const [playing, setPlaying] = useState<string | null>(null);
+
   return (
-    <section id="videos" className="w-full bg-transparent py-24">
-      <div className="max-w-4xl mx-auto text-center px-6 mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">视频展示</h2>
-        <p className="text-slate-400 text-lg md:text-xl">观看我们的一些演示与教程视频。</p>
+    <section id="videos" className="w-full bg-transparent py-12">
+      <div className="max-w-3xl mx-auto text-center px-4 mb-8">
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-1">视频展示</h2>
+        <p className="text-slate-400 text-sm md:text-base">观看我们的一些演示与教程视频。</p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="col-span-1 bg-[#0b0b13] rounded-xl overflow-hidden shadow-xl">
-          <div className="w-full h-64 md:h-80 lg:h-96 bg-black">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="示例视频1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {VIDEO_DATA.map((v) => (
+          <div key={v.id} className="bg-[#0b0b13] rounded-lg overflow-hidden shadow-md">
+            <button
+              onClick={() => setPlaying(v.id)}
+              className="relative group w-full block"
+              aria-label={`播放 ${v.title}`}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
+                alt={v.title}
+                className="w-full h-44 sm:h-52 md:h-56 object-cover"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="rounded-full bg-indigo-500/85 p-2 transform group-hover:scale-105 transition-transform">
+                  <PlayIcon />
+                </div>
+              </div>
+            </button>
+            <div className="p-3">
+              <h3 className="text-base font-semibold">{v.title}</h3>
+              <p className="text-slate-400 text-xs mt-1">{v.desc}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {v.tags.map((t) => (
+                  <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded-md text-slate-200">{t}</span>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="p-6">
-            <h3 className="text-lg md:text-xl font-semibold">示例视频 1</h3>
-            <p className="text-slate-400 text-sm md:text-base mt-1">一个用于展示的视频占位示例。可替换为实际教程或演示视频。</p>
-          </div>
-        </div>
+        ))}
+      </div>
 
-        <div className="col-span-1 bg-[#0b0b13] rounded-xl overflow-hidden shadow-xl">
-          <div className="w-full h-64 md:h-80 lg:h-96 bg-black">
-            <iframe
-              src="https://www.youtube.com/embed/9bZkp7q19f0"
-              title="示例视频2"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="text-lg md:text-xl font-semibold">示例视频 2</h3>
-            <p className="text-slate-400 text-sm md:text-base mt-1">另一个视频占位，替换为实际视频链接或自托管播放器。</p>
-          </div>
-        </div>
-
-        <div className="col-span-1 bg-[#0b0b13] rounded-xl overflow-hidden shadow-xl">
-          <div className="w-full h-64 md:h-80 lg:h-96 bg-black flex items-center justify-center text-slate-500">
-            <div className="text-center px-6">
-              <p className="mb-4">你可以在这里添加更多视频或使用动态数据源展示视频列表。</p>
-              <a href="#" className="inline-block px-4 py-2 bg-indigo-500 text-white rounded-lg">添加视频</a>
+      {playing && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+          <div className="w-full max-w-3xl mx-4 md:mx-0">
+            <div className="relative bg-black rounded-md overflow-hidden">
+              <button
+                onClick={() => setPlaying(null)}
+                className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
+                aria-label="关闭视频"
+              >
+                ✕
+              </button>
+              <div className="w-full h-[56vw] md:h-[55vh] lg:h-[60vh] bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${playing}?autoplay=1&rel=0`}
+                  title="视频播放"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
