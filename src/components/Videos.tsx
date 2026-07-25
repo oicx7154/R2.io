@@ -68,7 +68,7 @@ export default function Videos() {
                     onError={(e) => {
                       const img = e.currentTarget;
                       img.onerror = null;
-                      img.src = `/assets/${v.jpg}.jpg`;
+                      img.src = `/Assets/${v.jpg}.jpg`;
                     }}
                     className="w-full h-48 sm:h-52 md:h-56 object-cover transform transition-transform duration-300 group-hover:scale-105"
                   />
