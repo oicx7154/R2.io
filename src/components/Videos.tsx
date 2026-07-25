@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const VIDEO_DATA = [
   {
@@ -7,6 +7,7 @@ const VIDEO_DATA = [
     src: 'dQw4w9WgXcQ',
     title: '示例视频 YouTube',
     desc: 'YouTube 视频示例。',
+    duration: '3:21',
     tags: ['YouTube', '教程'],
   },
   {
@@ -15,6 +16,7 @@ const VIDEO_DATA = [
     src: '1123898957',
     title: '示例视频 Vimeo',
     desc: 'Vimeo 视频示例。',
+    duration: '2:45',
     // optional thumbnail can be provided; if absent a neutral placeholder is used
     thumbnail: 'https://i.vimeocdn.com/video/595198868_640.jpg',
     tags: ['Vimeo'],
@@ -26,6 +28,7 @@ const VIDEO_DATA = [
     title: '本地视频示例',
     desc: '示例本地视频，使用 <video> 播放器播放。',
     thumbnail: '/videos/sample-thumb.jpg',
+    duration: '1:12',
     tags: ['本地'],
   },
   {
@@ -48,6 +51,15 @@ function PlayIcon() {
 
 export default function Videos() {
   const [playing, setPlaying] = useState<string | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPlaying(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <section id="videos" className="w-full bg-transparent py-12">
@@ -57,7 +69,7 @@ export default function Videos() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {VIDEO_DATA.map((v) => {
+          {VIDEO_DATA.map((v) => {
           const thumb = v.thumbnail
             ? v.thumbnail
             : v.type === 'youtube'
@@ -67,7 +79,7 @@ export default function Videos() {
           return (
             <div
               key={v.id}
-              className="relative rounded-2xl glow-card overflow-hidden bg-[#0a0a1a] border border-white/5 shadow-lg"
+              className="relative rounded-2xl glow-card overflow-hidden bg-[#0a0a1a] border border-white/5 shadow-lg hover:scale-[1.02] transition-transform duration-200"
             >
               <button
                 onClick={() => setPlaying(v.id)}
@@ -78,10 +90,11 @@ export default function Videos() {
                   <img
                     src={thumb}
                     alt={v.title}
+                    loading="lazy"
                     className="w-full h-48 sm:h-52 md:h-56 object-cover transform transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/70 to-transparent" />
-                  <div className="absolute top-3 right-3 bg-black/30 text-xs text-white px-2 py-1 rounded-full backdrop-blur-sm">3:21</div>
+                  <div className="absolute top-3 right-3 bg-black/30 text-xs text-white px-2 py-1 rounded-full backdrop-blur-sm">{v.duration ?? '—'}</div>
 
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 p-3 transform group-hover:scale-105 transition-transform shadow-lg">
