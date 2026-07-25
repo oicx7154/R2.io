@@ -12,7 +12,7 @@ const VIDEO_DATA = [
   {
     id: 'vimeo1',
     type: 'vimeo',
-    src: '76979871',
+    src: '1123898957',
     title: '示例视频 Vimeo',
     desc: 'Vimeo 视频示例。',
     // optional thumbnail can be provided; if absent a neutral placeholder is used
@@ -65,25 +65,28 @@ export default function Videos() {
             : '/assets/video-placeholder.png';
 
           return (
-            <div key={v.id} className="bg-[#0b0b13] rounded-lg overflow-hidden shadow-md">
+            <div
+              key={v.id}
+              className="relative rounded-2xl glow-card overflow-hidden bg-[#0a0a1a] border border-white/5 shadow-lg"
+            >
               <button
                 onClick={() => setPlaying(v.id)}
                 className="relative group w-full block"
                 aria-label={`播放 ${v.title}`}
               >
-                <img src={thumb} alt={v.title} className="w-full h-44 sm:h-52 md:h-56 object-cover" />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="rounded-full bg-indigo-500/85 p-2 transform group-hover:scale-105 transition-transform">
+                <img src={thumb} alt={v.title} className="w-full h-48 sm:h-56 md:h-60 object-cover" />
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 p-3 transform group-hover:scale-105 transition-transform shadow-lg">
                     <PlayIcon />
                   </div>
                 </div>
               </button>
-              <div className="p-3">
-                <h3 className="text-base font-semibold">{v.title}</h3>
-                <p className="text-slate-400 text-xs mt-1">{v.desc}</p>
+              <div className="p-4 md:p-5">
+                <h3 className="text-sm md:text-base font-semibold text-white">{v.title}</h3>
+                <p className="text-slate-400 text-sm mt-1">{v.desc}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {v.tags.map((t) => (
-                    <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded-md text-slate-200">{t}</span>
+                    <span key={t} className="text-[11px] inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/6 text-slate-200">{t}</span>
                   ))}
                 </div>
               </div>
@@ -97,12 +100,12 @@ export default function Videos() {
         if (!v) return null;
 
         return (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-            <div className="w-full max-w-3xl mx-4 md:mx-0">
-              <div className="relative bg-black rounded-md overflow-hidden">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65">
+            <div className="w-full max-w-4xl mx-4 md:mx-0">
+              <div className="relative rounded-2xl overflow-hidden bg-[#071023] border border-white/6 shadow-2xl">
                 <button
                   onClick={() => setPlaying(null)}
-                  className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
+                  className="absolute top-4 right-4 z-50 bg-white/6 hover:bg-white/10 text-white rounded-full p-2"
                   aria-label="关闭视频"
                 >
                   ✕
