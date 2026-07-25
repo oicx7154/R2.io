@@ -3,15 +3,38 @@ import React, { useState } from 'react';
 const VIDEO_DATA = [
   {
     id: 'dQw4w9WgXcQ',
-    title: '示例视频 1',
-    desc: '一个用于展示的视频占位示例。可替换为实际教程或演示视频。',
-    tags: ['教程', '演示'],
+    type: 'youtube',
+    src: 'dQw4w9WgXcQ',
+    title: '示例视频 YouTube',
+    desc: 'YouTube 视频示例。',
+    tags: ['YouTube', '教程'],
   },
   {
-    id: '9bZkp7q19f0',
-    title: '示例视频 2',
-    desc: '另一个视频占位，替换为实际视频链接或自托管播放器。',
-    tags: ['宣传'],
+    id: 'vimeo1',
+    type: 'vimeo',
+    src: '76979871',
+    title: '示例视频 Vimeo',
+    desc: 'Vimeo 视频示例。',
+    // optional thumbnail can be provided; if absent a neutral placeholder is used
+    thumbnail: 'https://i.vimeocdn.com/video/595198868_640.jpg',
+    tags: ['Vimeo'],
+  },
+  {
+    id: 'local1',
+    type: 'file',
+    src: '/videos/sample.mp4',
+    title: '本地视频示例',
+    desc: '示例本地视频，使用 <video> 播放器播放。',
+    thumbnail: '/videos/sample-thumb.jpg',
+    tags: ['本地'],
+  },
+  {
+    id: 'embed1',
+    type: 'embed',
+    src: 'https://player.twitch.tv/?channel=monstercat&parent=example.com',
+    title: '通用嵌入示例',
+    desc: '示例通用嵌入（Twitch/其他）',
+    tags: ['嵌入'],
   },
 ];
 
@@ -34,61 +57,99 @@ export default function Videos() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {VIDEO_DATA.map((v) => (
-          <div key={v.id} className="bg-[#0b0b13] rounded-lg overflow-hidden shadow-md">
-            <button
-              onClick={() => setPlaying(v.id)}
-              className="relative group w-full block"
-              aria-label={`播放 ${v.title}`}
-            >
-              <img
-                src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
-                alt={v.title}
-                className="w-full h-44 sm:h-52 md:h-56 object-cover"
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="rounded-full bg-indigo-500/85 p-2 transform group-hover:scale-105 transition-transform">
-                  <PlayIcon />
+        {VIDEO_DATA.map((v) => {
+          const thumb = v.thumbnail
+            ? v.thumbnail
+            : v.type === 'youtube'
+            ? `https://img.youtube.com/vi/${v.src}/hqdefault.jpg`
+            : '/assets/video-placeholder.png';
+
+          return (
+            <div key={v.id} className="bg-[#0b0b13] rounded-lg overflow-hidden shadow-md">
+              <button
+                onClick={() => setPlaying(v.id)}
+                className="relative group w-full block"
+                aria-label={`播放 ${v.title}`}
+              >
+                <img src={thumb} alt={v.title} className="w-full h-44 sm:h-52 md:h-56 object-cover" />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="rounded-full bg-indigo-500/85 p-2 transform group-hover:scale-105 transition-transform">
+                    <PlayIcon />
+                  </div>
+                </div>
+              </button>
+              <div className="p-3">
+                <h3 className="text-base font-semibold">{v.title}</h3>
+                <p className="text-slate-400 text-xs mt-1">{v.desc}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {v.tags.map((t) => (
+                    <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded-md text-slate-200">{t}</span>
+                  ))}
                 </div>
               </div>
-            </button>
-            <div className="p-3">
-              <h3 className="text-base font-semibold">{v.title}</h3>
-              <p className="text-slate-400 text-xs mt-1">{v.desc}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {v.tags.map((t) => (
-                  <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded-md text-slate-200">{t}</span>
-                ))}
-              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {playing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="w-full max-w-3xl mx-4 md:mx-0">
-            <div className="relative bg-black rounded-md overflow-hidden">
-              <button
-                onClick={() => setPlaying(null)}
-                className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
-                aria-label="关闭视频"
-              >
-                ✕
-              </button>
-              <div className="w-full h-[56vw] md:h-[55vh] lg:h-[60vh] bg-black">
-                <iframe
-                  src={`https://www.youtube.com/embed/${playing}?autoplay=1&rel=0`}
-                  title="视频播放"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+      {playing && (() => {
+        const v = VIDEO_DATA.find((x) => x.id === playing);
+        if (!v) return null;
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="w-full max-w-3xl mx-4 md:mx-0">
+              <div className="relative bg-black rounded-md overflow-hidden">
+                <button
+                  onClick={() => setPlaying(null)}
+                  className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
+                  aria-label="关闭视频"
+                >
+                  ✕
+                </button>
+                <div className="w-full h-[56vw] md:h-[55vh] lg:h-[60vh] bg-black">
+                  {v.type === 'youtube' && (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${v.src}?autoplay=1&rel=0`}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  )}
+
+                  {v.type === 'vimeo' && (
+                    <iframe
+                      src={`https://player.vimeo.com/video/${v.src}?autoplay=1`}
+                      title={v.title}
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  )}
+
+                  {v.type === 'file' && (
+                    <video className="w-full h-full" controls autoPlay>
+                      <source src={v.src} />
+                      你的浏览器不支持 video 标签。
+                    </video>
+                  )}
+
+                  {v.type === 'embed' && (
+                    <iframe
+                      src={v.src}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </section>
   );
 }
