@@ -74,10 +74,19 @@ export default function Videos() {
                 className="relative group w-full block"
                 aria-label={`播放 ${v.title}`}
               >
-                <img src={thumb} alt={v.title} className="w-full h-48 sm:h-56 md:h-60 object-cover" />
-                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 p-3 transform group-hover:scale-105 transition-transform shadow-lg">
-                    <PlayIcon />
+                <div className="relative overflow-hidden rounded-t-2xl">
+                  <img
+                    src={thumb}
+                    alt={v.title}
+                    className="w-full h-48 sm:h-52 md:h-56 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute top-3 right-3 bg-black/30 text-xs text-white px-2 py-1 rounded-full backdrop-blur-sm">3:21</div>
+
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 p-3 transform group-hover:scale-105 transition-transform shadow-lg">
+                      <PlayIcon />
+                    </div>
                   </div>
                 </div>
               </button>
