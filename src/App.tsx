@@ -13,10 +13,11 @@ import Footer from './components/Footer';
 import Rank from './components/Team';
 import CookieConsent from './components/CookieConsent';
 
-type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey' | 'rank';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey' | 'rank' | 'videos';
 
 const hashToPage: Record<string, Page> = {
   '#/version': 'version',
+  '#/videos': 'videos',
   '#/games': 'games',
   '#/scripts': 'scripts',
   '#/getkey': 'getkey',
@@ -26,6 +27,7 @@ const hashToPage: Record<string, Page> = {
 const pageToHash: Record<Page, string> = {
   home: '',
   version: '#/version',
+  videos: '#/videos',
   games: '#/games',
   scripts: '#/scripts',
   getkey: '#/getkey',
@@ -60,7 +62,6 @@ export default function App() {
           <Hero navigate={navigate} />
           <Announcements />
           <Features />
-          <Videos />
           <FAQ />
         </>
       )}
@@ -80,6 +81,12 @@ export default function App() {
       {page === 'version' && (
         <SubPage navigate={navigate}>
           <Injectors />
+        </SubPage>
+      )}
+
+      {page === 'videos' && (
+        <SubPage navigate={navigate}>
+          <Videos />
         </SubPage>
       )}
 

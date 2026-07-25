@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey' | 'rank';
+type Page = 'home' | 'version' | 'games' | 'scripts' | 'getkey' | 'rank' | 'videos';
 
 import SSImage from './icon.png';
 
 const sectionLinks = [
   { label: '功能', href: '#features', page: null as Page | null },
-  { label: '视频', href: '#videos', page: null as Page | null },
+  { label: '视频', href: '#/videos', page: 'videos' as Page },
   { label: '游戏', href: '#/games', page: 'games' as Page },
   { label: '脚本', href: '#/scripts', page: 'scripts' as Page },
   { label: '排行榜', href: '#/rank', page: 'rank' as Page },
