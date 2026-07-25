@@ -1,44 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const VIDEO_DATA = [
-  {
-    id: 'dQw4w9WgXcQ',
-    type: 'youtube',
-    src: 'dQw4w9WgXcQ',
-    title: '示例视频 YouTube',
-    desc: 'YouTube 视频示例。',
-    duration: '3:21',
-    tags: ['YouTube', '教程'],
-  },
-  {
-    id: 'vimeo1',
-    type: 'vimeo',
-    src: '1123898957',
-    title: '示例视频 Vimeo',
-    desc: 'Vimeo 视频示例。',
-    duration: '2:45',
-    // optional thumbnail can be provided; if absent a neutral placeholder is used
-    thumbnail: 'https://i.vimeocdn.com/video/595198868_640.jpg',
-    tags: ['Vimeo'],
-  },
-  {
-    id: 'local1',
-    type: 'file',
-    src: '/videos/sample.mp4',
-    title: '本地视频示例',
-    desc: '示例本地视频，使用 <video> 播放器播放。',
-    thumbnail: '/videos/sample-thumb.jpg',
-    duration: '1:12',
-    tags: ['本地'],
-  },
-  {
-    id: 'embed1',
-    type: 'embed',
-    src: 'https://player.twitch.tv/?channel=monstercat&parent=example.com',
-    title: '通用嵌入示例',
-    desc: '示例通用嵌入（Twitch/其他）',
-    tags: ['嵌入'],
-  },
+    {
+    id: 'stream1',
+    type: 'streamable',
+    src: 'byvawj',
+    title: '新鞋到货后的ks',
+    desc: '实则展示狱卒',
+    duration: "2:05",
+    tags: ['KS'],
+    },
 ];
 
 function PlayIcon() {
@@ -64,19 +35,20 @@ export default function Videos() {
   return (
     <section id="videos" className="w-full bg-transparent py-12">
       <div className="max-w-3xl mx-auto text-center px-4 mb-8">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-1">视频展示</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
              <span className="text-gradient">视频展示</span>
-        <p className="text-slate-400 text-sm md:text-base">观看</p>
+            </h2>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {VIDEO_DATA.map((v) => {
-          const thumb = v.thumbnail
+            const thumb = v.thumbnail
             ? v.thumbnail
             : v.type === 'youtube'
             ? `https://img.youtube.com/vi/${v.src}/hqdefault.jpg`
+            : v.type === 'streamable'
+            ? `https://cdn.streamable.com/image/${v.src}.jpg`
             : '/assets/video-placeholder.png';
-
           return (
             <div
               key={v.id}
@@ -146,7 +118,15 @@ export default function Videos() {
                       className="w-full h-full"
                     />
                   )}
-
+                    {v.type === 'streamable' && (
+                    <iframe
+                        src={`https://streamable.com/e/${v.src}`}
+                        title={v.title}
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                    />
+                    )}
                   {v.type === 'vimeo' && (
                     <iframe
                       src={`https://player.vimeo.com/video/${v.src}?autoplay=1`}
