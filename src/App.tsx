@@ -6,6 +6,7 @@ import Features from './components/Features';
 import Games from './components/Games';
 import Injectors from './components/Injectors';
 import Scripts from './components/Scripts';
+import Videos from './components/Videos';
 import GetKey from './components/GetKey';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -59,6 +60,7 @@ export default function App() {
           <Hero navigate={navigate} />
           <Announcements />
           <Features />
+          <Videos />
           <FAQ />
         </>
       )}
