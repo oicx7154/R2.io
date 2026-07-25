@@ -65,7 +65,8 @@ export default function Videos() {
     <section id="videos" className="w-full bg-transparent py-12">
       <div className="max-w-3xl mx-auto text-center px-4 mb-8">
         <h2 className="text-2xl md:text-3xl font-extrabold mb-1">视频展示</h2>
-        <p className="text-slate-400 text-sm md:text-base">观看我们的一些演示与教程视频。</p>
+             <span className="text-gradient">视频展示</span>
+        <p className="text-slate-400 text-sm md:text-base">观看</p>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
