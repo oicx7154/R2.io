@@ -127,10 +127,13 @@ export default function Videos() {
               <div className="relative rounded-2xl overflow-hidden bg-[#071023] border border-white/6 shadow-2xl">
                 <button
                   onClick={() => setPlaying(null)}
-                  className="absolute top-4 right-4 z-50 bg-white/6 hover:bg-white/10 text-white rounded-full p-2"
+                  className="absolute top-4 right-4 z-50 bg-gradient-to-br from-indigo-600 to-purple-600 hover:opacity-95 text-white rounded-full p-2 shadow-2xl transform hover:scale-105 transition-all"
                   aria-label="关闭视频"
                 >
-                  ✕
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
                 </button>
                 <div className="w-full h-[56vw] md:h-[55vh] lg:h-[60vh] bg-black">
                   {v.type === 'youtube' && (
