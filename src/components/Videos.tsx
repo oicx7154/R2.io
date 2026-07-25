@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/oicx7154/R2.io/main';
+
 const VIDEO_DATA = [
     {
     id: 'stream1',
@@ -48,7 +50,7 @@ export default function Videos() {
             : v.type === 'youtube'
             ? `https://img.youtube.com/vi/${v.src}/hqdefault.jpg`
             : v.type === 'streamable'
-            ? `/Assets/${v.jpg}.jpg`
+            ? `${GITHUB_RAW_BASE}/Assets/${v.jpg}.jpg`
             : 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22360%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22640%22 height=%22360%22 fill=%22%230a0a1a%22 /%3E%3Ctext x=%22320%22 y=%22180%22 fill=%22%23ffffff%22 font-size=%2232%22 font-family=%22Arial%2Csans-serif%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22%3ENo+Cover%3C/text%3E%3C/svg%3E';
           return (
             <div
@@ -68,7 +70,7 @@ export default function Videos() {
                     onError={(e) => {
                       const img = e.currentTarget;
                       img.onerror = null;
-                      img.src = `/Assets/${v.jpg}.jpg`;
+                      img.src = `${GITHUB_RAW_BASE}/Assets/${v.jpg}.jpg`;
                     }}
                     className="w-full h-48 sm:h-52 md:h-56 object-cover transform transition-transform duration-300 group-hover:scale-105"
                   />
