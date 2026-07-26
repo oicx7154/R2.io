@@ -13,6 +13,26 @@ const VIDEO_DATA = [
     duration: "2:05",
     tags: ['KS'],
     },
+    {
+    id: 'stream2',
+    type: 'streamable',
+    src: 'w4647i',
+    jpg: "w4647i",
+    title: 'KS展示狱卒1',
+    desc: '',
+    duration: "1:03",
+    tags: ['KS'],
+    },
+    {
+    id: 'stream3',
+    type: 'streamable',
+    src: 'lgmgmb',
+    jpg: "lgmgmb",
+    title: 'KS展示狱卒2',
+    desc: '',
+    duration: "0:36",
+    tags: ['KS'],
+    }
 ];
 
 function PlayIcon() {
