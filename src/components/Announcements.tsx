@@ -64,6 +64,14 @@ const announcements: Announcement[] = [
     content: "新增游戏:Reign Fall",
     date: '2026-07-13',
     type: 'update',
+    pinned: false,
+  },
+  {
+    id: 6,
+    title: "更新公告",
+    content: "新增游戏:存储猎人",
+    date: '2026-07-28',
+    type: 'update',
     pinned: true,
   }
 ];

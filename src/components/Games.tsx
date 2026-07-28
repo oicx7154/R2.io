@@ -82,7 +82,15 @@ const games = [
     features: ["杀戮光环","透视"],
     status: "已更新",
     gradient: "from-pink-500 to-fuchsia-500"
-  }
+  },
+  {
+    name: "存储猎人",
+    placeId: 98800969324557,
+    universeId: 98800969324557,
+    features: ["自动拾取","自动出售","自动出价","自动传送"],
+    status: "已更新",
+    gradient: "from-pink-500 to-orange-600"
+  },
 ];
 const container = {
   hidden: {},

@@ -19,7 +19,7 @@ export default function Hero({ navigate }: { navigate: (p: Page) => void }) {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          2025 最新更新 — 始终未被检测
+          2026 最新更新 — 始终未被检测
         </motion.div>
 
         <motion.h1

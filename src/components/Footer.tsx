@@ -95,7 +95,7 @@ export default function Footer({ navigate }: { navigate: (p: Page) => void }) {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-600">
-            © 2025 RS Hub. 保留所有权利.
+            © 2026 RS Hub. 保留所有权利.
           </p>
           <p className="text-xs text-slate-700">
           仅供学习用途.
