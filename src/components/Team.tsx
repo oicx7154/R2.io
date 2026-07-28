@@ -4,6 +4,15 @@ import { Trophy, Medal, Award, Star, Zap, Crown } from 'lucide-react';
 const rankingData = [
   {
     rank: 1,
+    name: 'AC',
+    title: 'VK',
+    description: '最强之人',
+    score: 1,
+    image: 'https://tr.rbxcdn.com/30DAY-Avatar-27A2A324380BF1A7F4998AB42AEA4711-Png/720/720/Avatar/Webp/noFilter',
+    badges: ['脚本Dev',"最强之人"],
+  },
+  {
+    rank: 2,
     name: 'KS',
     title: '小男娘',
     description: '最扫之人,不容置疑',
@@ -12,7 +21,7 @@ const rankingData = [
     badges: ['诡计多端的小男娘'],
   },
   {
-    rank: 2,
+    rank: 3,
     name: 'Ye_Pon',
     title: '扫货',
     description: '最强乐乐之人,名言: 我喜茶你',
