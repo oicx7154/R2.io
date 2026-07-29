@@ -8,7 +8,7 @@ const rankingData = [
     title: 'VK',
     description: '最强之人',
     score: 100000000000,
-    image: 'https://tr.rbxcdn.com/30DAY-Avatar-27A2A324380BF1A7F4998AB42AEA4711-Png/720/720/Avatar/Webp/noFilter',
+    image: 'https://tr.rbxcdn.com/30DAY-AvatarHeadshot-27A2A324380BF1A7F4998AB42AEA4711-Png/150/150/AvatarHeadshot/Webp/noFilter',
     badges: ['脚本Dev',"最强之人"],
   },
   {
