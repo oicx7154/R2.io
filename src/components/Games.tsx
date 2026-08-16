@@ -91,6 +91,14 @@ const games = [
     status: "已更新",
     gradient: "from-pink-500 to-orange-600"
   },
+  {
+    name: "RUNAWAYS",
+    placeId: 118418618261207,
+    universeId: 118418618261207,
+    features: ["子追","杀戮光环","自动拾取","无限子弹"],
+    status: "已更新",
+    gradient: "from-fuchsia-500 to-orange-600"
+  },
 ];
 const container = {
   hidden: {},
