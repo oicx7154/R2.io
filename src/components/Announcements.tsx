@@ -72,6 +72,14 @@ const announcements: Announcement[] = [
     content: "新增游戏:存储猎人",
     date: '2026-07-28',
     type: 'update',
+    pinned: false,
+  },
+  {
+    id: 7,
+    title: "更新公告",
+    content: "新增游戏:RUNAWAYS",
+    date: '2026-08-16',
+    type: 'update',
     pinned: true,
   }
 ];
